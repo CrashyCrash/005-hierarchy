@@ -1,0 +1,156 @@
+.hierarchy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  background: var(--background);
+}
+
+.command-center {
+  text-align: center;
+  margin-bottom: 4rem;
+  z-index: 2;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.command-center:hover {
+  transform: translateY(-5px);
+}
+
+.command-center img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 4px solid var(--text-primary);
+  object-fit: cover;
+}
+
+.command-center h2 {
+  font-size: 2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.generals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.general-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.general-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.general-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 3px solid var(--text-primary);
+  object-fit: cover;
+}
+
+.general-card p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.connectors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.connector-line {
+  position: absolute;
+  background: var(--connector-color);
+  height: 2px;
+  transform-origin: left;
+  transition: all 0.3s ease;
+}
+
+.connector-line:hover {
+  background: var(--text-primary);
+  height: 3px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .generals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .command-center img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .general-card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .generals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .command-center {
+    padding: 1rem;
+  }
+
+  .command-center h2 {
+    font-size: 1.5rem;
+  }
+
+  .general-card {
+    padding: 1rem;
+  }
+
+  .general-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility Enhancements */
+.general-card:focus {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}
+
+.command-center:focus {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}
